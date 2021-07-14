@@ -18,11 +18,11 @@ module.exports = {
             })
             .then(() => {
                 // We let the message author know we were able to ban the person
-                message.reply(`Successfully banned <@${member.user.id}>`);
+                message.reply(`Successfully banned ${member.user}`);
             })
             .catch(err => {
                 // either due to missing permissions or role hierarchy
-                message.reply(`Attempted to ban ${member.user.tag} but failed. (Probably due to permission errors)`);
+                message.reply(`Attempted to ban ${member.user} but failed. (Probably due to permission errors)`);
                 // Log the error
                 console.error(err);
             });
