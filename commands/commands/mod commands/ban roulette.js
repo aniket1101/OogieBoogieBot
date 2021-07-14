@@ -8,18 +8,17 @@ module.exports = {
 
         let members = await message.guild.members.fetch();
 
-        //delete self so you can't ban yourself
-        members.delete(message.client.user.id)
-        
+        //filters all the bots out
+        members = members.filter(member => !member.user.bot)
         let member = members.random()
 
         member
             .ban({
-                reason: `by ban roullete!`,
+                reason: `by ban roulette!`,
             })
             .then(() => {
                 // We let the message author know we were able to ban the person
-                message.reply(`Successfully banned ${member.user.tag}`);
+                message.reply(`Successfully banned <@${member.user.id}>`);
             })
             .catch(err => {
                 // either due to missing permissions or role hierarchy
