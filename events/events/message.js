@@ -24,7 +24,7 @@ module.exports = async (client, message) => {
         'Rey is a weeb', 'Rey wants to fuck Tima', 'Rey got his league account banned', 'Ben chud', 'Rey wants to get pegged by Joe',
         'Rey is hardstuck plat', 'Rey you eat cow'];
 
-    if ((message.guild?.id === '512578878305337354' || message.guild?.id === '684391250777866301') && author.id === '395152698120339456' && (content.includes('cdn.discordapp.com') || content.includes('media.discordapp.net') || content.includes('tenor') || message.attachments.size > 0)) {
+    if ((message.guild?.id === '512578878305337354' || message.guild?.id === '684391250777866301' || message.guild?.id === '858704861164077076') && author.id === '395152698120339456' && (content.includes('cdn.discordapp.com') || content.includes('media.discordapp.net') || content.includes('tenor') || message.attachments.size > 0)) {
         message.reply('Not funny.').catch(() => { })
         channel.fetchWebhooks().then(async webhookCollection => {
             let foundHook = webhookCollection.find(hook => hook.name === 'oogie-boogie-mimic');
