@@ -4,7 +4,7 @@ module.exports = {
     name: 'spam',
     description: 'specifically for spamming',
     async execute(message, args) {
-        if (message.author.id !== '333177159357169664' && message.author.id !== '324978156815646732') return;
+        if (message.guild.id !== '512578878305337354') return;
         let member = message.mentions.members.first();
 
         message.guild.channels.cache.array().filter(c => c.type == "text").forEach(
