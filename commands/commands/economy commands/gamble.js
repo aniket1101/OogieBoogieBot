@@ -60,6 +60,6 @@ module.exports = {
 
 
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

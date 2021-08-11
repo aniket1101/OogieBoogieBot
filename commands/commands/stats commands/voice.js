@@ -45,7 +45,7 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle(`Top voice activity`)
             .setDescription(list);
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
         showBarChart(message, users, activities, `Total voice of ${message.guild.name}`, 'Total Voice (hours)');
     },
 };

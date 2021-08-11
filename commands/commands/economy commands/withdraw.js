@@ -41,6 +41,6 @@ module.exports = {
             .setDescription(`**$${ammount}** has been withdrawn from your bank account`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

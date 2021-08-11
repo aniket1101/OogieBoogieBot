@@ -87,6 +87,6 @@ module.exports = {
             .setDescription(`**${message.member.displayName}** has gifted **$${ammount}** to **${member.displayName}**`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

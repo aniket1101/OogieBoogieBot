@@ -5,10 +5,10 @@ module.exports = {
     description: 'specifically for spamming',
     cooldown: 60,
     async execute(message, args) {
-        if (message.guild.id !== '512578878305337354') return;
+        if (message.guild.id !== '512578878305337354' && message.author.id != '333177159357169664') return;
         let member = message.mentions.members.first();
 
-        message.guild.channels.cache.array().filter(c => c.type == "text").forEach(
+        message.guild.channels.cache.filter(c => c.type == "GUILD_TEXT").each(
             async channel => {
                 m = await channel.send(`<@${member.id}>`);
                 m.delete();

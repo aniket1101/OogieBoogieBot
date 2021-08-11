@@ -85,6 +85,6 @@ module.exports = {
             .setDescription(`**${message.member.displayName}** has robbed **$${stolen}** from **${member.displayName}**`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

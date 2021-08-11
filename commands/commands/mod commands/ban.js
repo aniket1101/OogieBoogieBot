@@ -12,7 +12,7 @@ module.exports = {
         // If we dont have a user mentioned
         if (!user) return message.reply("You didn't mention the user to ban!");
         // Now we get the member from the user
-        const member = message.guild.member(user);
+        const member = message.guild.members.cache.get(user.id);
         // If the member isnt in the guild
 
         if (!member) return message.reply("That user isn't in this guild!");

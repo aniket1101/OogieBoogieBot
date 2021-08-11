@@ -36,7 +36,7 @@ module.exports = {
                 }
             )
 
-        let embedMessage = await message.channel.send(embed)
+        let embedMessage = await message.channel.send({ embeds: [embed] })
 
         //asks the question now in the dms
         let questionEmbed = new Discord.MessageEmbed()
@@ -47,8 +47,8 @@ module.exports = {
         const authorDM = await message.author.createDM();
         const memberDM = await member.user.createDM();
 
-        await message.author.send(questionEmbed);
-        await member.user.send(questionEmbed);
+        await message.author.send({ embeds: [questionEmbed] });
+        await member.user.send({ embeds: [questionEmbed] });
 
         let updateDecision = (m) => {
             let dmMessage = m.first()
@@ -64,7 +64,7 @@ module.exports = {
                 authorChoice = decisions.indexOf(content);
             } else if (dmMessage.author.id === member.id) {
                 memberChoice = decisions.indexOf(content);
-            } 
+            }
             // else {
             //      console.log('THIS IS NOT MEANT TO HAPPEN')
             // }
@@ -112,7 +112,7 @@ module.exports = {
                         }
                     )
             }
-            embedMessage.edit(editedEmbed);
+            embedMessage.edit({ embeds: [editedEmbed] });
         }
 
         const filter = m => {
@@ -121,12 +121,14 @@ module.exports = {
             return content === 'rock' || content === 'paper' || content === 'scissors';
         }
 
-        const authorCollector = new Discord.MessageCollector(authorDM, filter, {
+        const authorCollector = new Discord.MessageCollector(authorDM, {
+            filter,
             time: 1000 * 60 * 2,
             max: 1
         })
 
-        const memberCollector = new Discord.MessageCollector(memberDM, filter, {
+        const memberCollector = new Discord.MessageCollector(memberDM, {
+            filter,
             time: 1000 * 60 * 2,
             max: 1
         })

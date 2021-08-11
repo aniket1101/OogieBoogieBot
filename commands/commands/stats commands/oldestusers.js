@@ -7,7 +7,7 @@ module.exports = {
     execute: async (message, args) => {
 
         let members = await message.guild.members.fetch();
-        let array = members.array();
+        let array = members.values();
         array = array.filter(member=>!member.user.bot)
         array.sort((a, b) => a.user.createdTimestamp < b.user.createdTimestamp ? -1 : 1)
 
@@ -27,6 +27,6 @@ module.exports = {
             }
         }
         
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

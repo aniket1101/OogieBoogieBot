@@ -29,6 +29,6 @@ module.exports = {
             .setImage(pick)
             .setFooter(`Requested by ${message.author.tag}`)
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

@@ -96,6 +96,6 @@ module.exports = {
             { name: 'Voting channels: ', value: `${voteChannels}`, inline: true }
         )
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

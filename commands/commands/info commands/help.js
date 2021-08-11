@@ -31,7 +31,7 @@ module.exports = {
                         }
                     );
 
-                return message.channel.send(embed);
+                return message.channel.send({ embeds: [embed] });
             }
         })
         if (!allCommands) return;
@@ -40,12 +40,14 @@ module.exports = {
         let commandName = args[0];
         if (commandName) {
             commandName = commandName.toLowerCase();
-            message.client.commands.array().forEach(element => {
+            for (const element of message.client.commands.values()) {
                 if (commandName === element.name || (element.aliases && element.aliases.includes(commandName))) {
                     command = element;
                 }
-            })
+            }
         }
+
+        console.log(command)
 
         //help on a specific command
         if (command) {
@@ -88,22 +90,22 @@ module.exports = {
             embed.addFields(
                 {
                     name: 'Member Permissions',
-                    value: memberPermissions.join(', ') ? memberPermissions.join(', ') : 'None',
+                    value: memberPermissions.join(', ') != '' ? memberPermissions.join(', ') : 'None',
                     inline: true,
                 },
                 {
                     name: 'Bot Permissions',
-                    value: clientPermissions.join(', ') ? clientPermissions.join(', ') : 'None',
+                    value: clientPermissions.join(', ') != '' ? clientPermissions.join(', ') : 'None',
                     inline: false,
                 },
                 {
                     name: 'Server Only?',
-                    value: guildOnly,
+                    value: guildOnly.toString(),
                     inline: true,
                 },
                 {
                     name: 'NSFW?',
-                    value: nsfw,
+                    value: nsfw.toString(),
                     inline: true,
                 }
             )
@@ -117,7 +119,7 @@ module.exports = {
                 embed.addField('Cooldown', cooldownTime, true);
             }
 
-            message.channel.send(embed);
+            message.channel.send({ embeds: [embed] });
             return
         }
 

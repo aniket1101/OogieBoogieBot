@@ -27,6 +27,6 @@ module.exports = {
                 { name: 'Approximate online people:', value: `${json.approximate_presence_count}`},
             )
             .setFooter(`requested by ${message.author.tag}`)
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

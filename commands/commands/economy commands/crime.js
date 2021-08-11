@@ -29,6 +29,6 @@ module.exports = {
             .setDescription(`**${message.member.displayName}** has gained **$${gained}** after stealing!`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({ embeds: [embed] })
     },
 };

@@ -16,6 +16,6 @@ module.exports = {
             .setURL(json.postLink)
             .setImage(json.url);
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

@@ -29,14 +29,14 @@ module.exports = {
     minArgs: 1,
     guildOnly: true,
     async execute(message, args) {
-        let people = message.mentions.members.array();
+        let people = message.mentions.members;
 
         if (args[0] === 'everyone') {
-            let members = await message.guild.members.fetch();
-            people = members.array();
+            people = await message.guild.members.fetch();
         }
 
         people = people.filter(member => !member.user.bot)
+        people = people.random(40)
 
         if (people.length === 0) {
             return message.reply('Invalid users.');
@@ -72,6 +72,6 @@ module.exports = {
             .setDescription(response)
             .setColor('#0099ff')
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

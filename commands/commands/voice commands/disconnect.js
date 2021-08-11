@@ -12,9 +12,9 @@ module.exports = {
     clientPermissions: ['MOVE_MEMBERS'],
     execute: (message, args) => {
         if (args[0] === 'all') {
-            message.guild.channels.cache.array().forEach(channel => {
-                if (channel.type == 'voice') {
-                    channel.members.array().forEach(member => {
+            message.guild.channels.cache.map(element => element).forEach(channel => {
+                if (channel.type == 'GUILD_VOICE') {
+                    channel.members.map(element => element).forEach(member => {
                         member.voice.kick();
                     });
                 };
@@ -27,11 +27,11 @@ module.exports = {
         let user = targetMember.user;
 
         let flag = true;
-        message.guild.channels.cache.array().forEach(channel => {
-            if (channel.type == 'voice') {
-                channel.members.array().forEach(member => {
+        message.guild.channels.cache.map(element => element).forEach(channel => {
+            if (channel.type == 'GUILD_VOICE') {
+                channel.members.map(element => element).forEach(member => {
                     if (member.user == user) {
-                        member.voice.kick();
+                        member.voice.disconnect();
                         flag = false;
                     }
                 });

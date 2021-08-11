@@ -33,7 +33,7 @@ module.exports = {
                     .addFields(
                         { name: 'Current timeout role:', value: `${timeoutRole}`, inline: false },
                     )
-                return message.channel.send(embed);
+                return message.channel.send({embeds: [embed]});
             } else {
                 return message.reply(`Set a timeout role using \`e timeoutrole {role}\``)
             }

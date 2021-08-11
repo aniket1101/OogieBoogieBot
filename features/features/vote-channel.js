@@ -3,7 +3,7 @@ const voteChannelSchema = require('@models/vote-channel-schema');
 module.exports = async (client) => {
     //message logging
 
-    client.on('message', async (message) => {
+    client.on('messageCreate', async (message) => {
         if (!message.guild) return;
 
         let voteChannelCollection = voteChannelSchema;

@@ -59,6 +59,6 @@ module.exports = {
 
 
         if (msg.attachment) embed.setImage(msg.attachment);
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

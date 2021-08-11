@@ -20,5 +20,5 @@ module.exports = async (client, guild) => {
         )
 
     let logGuild = await client.guilds.fetch('616347460679368731')
-    logGuild.channels.cache.get('811898380104106006').send(embed);
+    logGuild.channels.cache.get('811898380104106006').send({embeds: [embed]});
 }

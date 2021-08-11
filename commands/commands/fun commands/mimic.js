@@ -31,10 +31,11 @@ module.exports = {
         channel.fetchWebhooks().then(async webhookCollection => {
             let foundHook = webhookCollection.find(hook => hook.name === 'oogie-boogie-mimic');
             if (!foundHook) {
-                foundHook = await channel.createWebhook('oogie-boogie-mimic', avatarURL);
+                foundHook = await channel.createWebhook('oogie-boogie-mimic', {avatar: avatarURL, reason: 'oogie boogie mimic'});
             }
 
-            foundHook.send(content.join(' '), {
+            foundHook.send({
+                content: content.join(' '),
                 username: member.displayName,
                 avatarURL: avatarURL
             })

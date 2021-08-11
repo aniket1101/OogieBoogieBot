@@ -39,7 +39,7 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle(`Total messages sent`)
             .setDescription(list);
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
         showBarChart(message, users, activities, `Total messages in ${message.guild.name}`, 'messages');
     },
 };

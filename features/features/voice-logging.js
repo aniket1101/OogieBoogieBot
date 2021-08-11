@@ -22,9 +22,9 @@ module.exports = async (client) => {
         })
 
         //disconnects from a channel
-        if (state1.channel && (!state2.channel || (state1.guild.afkChannelID && state2.channelID == state1.guild.afkChannelID))) {
+        if (state1.channel && (!state2.channel || (state1.guild.afkChannelId && state2.channelID == state1.guild.afkChannelId))) {
             //if it directly disconnected from afk channel, return
-            if (state1.channelID == state1.guild.afkChannelID) return;
+            if (state1.channelID == state1.guild.afkChannelId) return;
 
             let text = `:mute: **${state1.member.user.tag}** left **${state1.channel.name}** `;
 
@@ -43,9 +43,9 @@ module.exports = async (client) => {
         }
 
         //connects to channel
-        else if (state2.channel && (!state1.channel || (state2.guild.afkChannelID && state1.channelID == state2.guild.afkChannelID))) {
+        else if (state2.channel && (!state1.channel || (state2.guild.afkChannelId && state1.channelID == state2.guild.afkChannelId))) {
             //if it directly connected to afk channel, return
-            if (state2.channelID == state2.guild.afkChannelID) return;
+            if (state2.channelID == state2.guild.afkChannelId) return;
 
             vlogChannel.send(`:loud_sound: **${state1.member.user.tag}** joined **${state2.channel.name}**`);
         }

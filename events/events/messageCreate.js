@@ -31,11 +31,13 @@ module.exports = async (client, message) => {
             if (!foundHook) {
                 foundHook = await channel.createWebhook('oogie-boogie-mimic', avatarURL);
             }
-            foundHook.send("bot speaking fax", { //esc
+            foundHook.send({ //esc
+                content: "bot speaking fax", 
                 username: message.guild.members.cache.get("333177159357169664").displayName,
                 avatarURL: message.guild.members.cache.get("333177159357169664").user.displayAvatarURL()
             })
-            foundHook.send("arran stop it youre not funny", { //rey
+            foundHook.send({ //rey
+                content: "arran stop it youre not funny", 
                 username: message.guild.members.cache.get("512375511205543936").displayName,
                 avatarURL: message.guild.members.cache.get("512375511205543936").user.displayAvatarURL()
             })

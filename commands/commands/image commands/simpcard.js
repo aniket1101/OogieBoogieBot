@@ -1,4 +1,4 @@
-const Canvas = require('canvas');
+// const Canvas = require('canvas');
 const { MessageAttachment } = require('discord.js');
 const path = require('path');
 
@@ -9,6 +9,7 @@ module.exports = {
     guildOnly: true,
     clientPermissions: ['ATTACH_FILES'],
     async execute(message, args) {
+        return message.reply("This command is unavailable now")
         let member = message.guild.members.cache.get(args[0]) || message.mentions.members.first() || message.member;
 
         const canvas = Canvas.createCanvas(500, 500);

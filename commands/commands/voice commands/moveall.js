@@ -9,11 +9,11 @@ module.exports = {
     clientPermissions: ['MOVE_MEMBERS'],
     async execute(message, args) {
         let channelEnd;
-        message.guild.channels.cache.array().forEach(channel => {
-            if(channel.type == 'voice' && channel.name === args.join(' ')){
+        message.guild.channels.cache.map(element => element).forEach(channel => {
+            if(channel.type == 'GUILD_VOICE' && channel.name === args.join(' ')){
                 channelEnd = channel;
             };
-            if(channel.type == 'voice' && channel.id === args.join(' ')){
+            if(channel.type == 'GUILD_VOICE' && channel.id === args.join(' ')){
                 channelEnd = channel;
             };
         });
@@ -28,7 +28,7 @@ module.exports = {
         let count = 0;
         message.guild.channels.cache.each(
             channel => { 
-                if (channel.type === 'voice') {
+                if (channel.type === 'GUILD_VOICE') {
                     channel.members.each(async member => {
                         await member.voice.setChannel(channelEnd).then(()=>{
                             count ++;

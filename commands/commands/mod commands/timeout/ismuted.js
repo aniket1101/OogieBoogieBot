@@ -39,6 +39,6 @@ module.exports = {
             embed.addField('Muted until', `${date.toLocaleString()} GMT`)
         }
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

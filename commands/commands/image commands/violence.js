@@ -1,4 +1,4 @@
-const Canvas = require('canvas');
+// const Canvas = require('canvas');
 const { MessageAttachment } = require('discord.js');
 const path = require('path');
 
@@ -10,6 +10,7 @@ module.exports = {
     guildOnly: true,
     clientPermissions: ['ATTACH_FILES'],
     async execute(message, args) {
+        return message.reply("This command is unavailable now")
         let cleanContent = message.cleanContent.slice(prefix.length).trim().split(/ +/);
         cleanContent.shift()
 

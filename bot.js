@@ -2,7 +2,7 @@ require('module-alias/register');
 
 const Discord = require('discord.js');
 require('dotenv').config();
-const client = new Discord.Client();
+const client = new Discord.Client({ intents: new Discord.Intents(32767) });
 client.commands = new Discord.Collection();
 client.snipes = new Discord.Collection();
 client.editSnipes = new Discord.Collection();

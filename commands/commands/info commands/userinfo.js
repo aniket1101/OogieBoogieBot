@@ -18,9 +18,9 @@ module.exports = {
 
         const member = await message.guild.members.fetch(user.id);
         let roles = ``;
-        member.roles.cache.array().forEach((item, index) => {
+        for (const item of member.roles.cache.values()){
             roles += `<@&${item.id}> `
-        })
+        }
         let daysCreated = Math.round((message.createdTimestamp - user.createdTimestamp) / 1000 / 60 / 60 / 24);
         let daysJoined = Math.round((message.createdTimestamp - member.joinedTimestamp) / 1000 / 60 / 60 / 24);
 
@@ -38,6 +38,6 @@ module.exports = {
                 { name: 'Bot:', value: `${user.bot}` },
             )
             .setFooter(`requested by ${message.author.tag}`)
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

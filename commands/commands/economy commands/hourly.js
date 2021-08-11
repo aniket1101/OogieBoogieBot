@@ -27,6 +27,6 @@ module.exports = {
             .setDescription(`You have gained **$500**`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

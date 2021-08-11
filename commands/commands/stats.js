@@ -53,6 +53,6 @@ module.exports = {
             false
         )
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

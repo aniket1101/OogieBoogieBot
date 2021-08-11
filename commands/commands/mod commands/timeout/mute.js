@@ -27,14 +27,14 @@ module.exports = {
         if (!user) return message.reply("You didn't mention the user to mute!");
         if (user.bot) return message.channel.send('You can\'t do this to a bot');
         // Now we get the member from the user
-        const member = message.guild.member(user);
+        const member = message.guild.members.cache.get(user.id);
 
         // If the member isnt in the guild
         if (!member) return message.reply("That user isn't in this server!");
         if (member.roles.highest.position >= message.member.roles.highest.position) {
             return message.reply('Unable to timeout someone with an equal or higher role than you');
         }
-        if (message.guild.member(message.client.user).roles.highest.position <= member.roles.highest.position) {
+        if (message.guild.members.cache.get(message.client.user.id).roles.highest.position <= member.roles.highest.position) {
             return message.reply('I\'m unable to timeout someone with an equal or higher role than me');
         }
 

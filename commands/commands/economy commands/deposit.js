@@ -42,6 +42,6 @@ module.exports = {
             .setDescription(`**$${ammount}** has been added to your bank account`)
             .setColor('#0099ff')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

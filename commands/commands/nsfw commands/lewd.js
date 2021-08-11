@@ -16,6 +16,6 @@ module.exports = {
             .setImage(json.url)
             .setFooter(`Requested by ${message.author.tag}`)
 
-        message.channel.send(embed);
+        message.channel.send({embeds: [embed]});
     },
 };

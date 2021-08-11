@@ -32,6 +32,6 @@ module.exports = {
             .setColor('#0099ff')
             .setTitle(`Longest voice in ${message.guild.name}`)
             .setDescription(text);
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

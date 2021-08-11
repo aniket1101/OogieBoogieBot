@@ -82,5 +82,5 @@ const giveMoney = async (id, message) => {
         .setDescription(`**${message.member.displayName}** has gained $2000`)
         .setColor('#0099ff')
 
-    message.channel.send(embed)
+    message.channel.send({embeds: [embed]})
 }

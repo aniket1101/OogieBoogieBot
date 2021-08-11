@@ -9,6 +9,6 @@ module.exports = {
             .setTitle('Invite link')
             .setDescription('[click this link to invite me](https://discord.com/oauth2/authorize?client_id=789960873203990598&permissions=0&scope=bot)')
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

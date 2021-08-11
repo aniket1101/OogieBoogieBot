@@ -68,11 +68,11 @@ module.exports = {
                 .setColor('#0099ff')
                 .setTitle(`Top message activity`)
                 .setDescription(list);
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             showBarChart(message, users, activities, `Message activity in ${message.guild.name}`, 'messages per day');
 
         } //total messages
-        else if (args[0] === 'voice') {
+        else if (args[0] === 'GUILD_VOICE') {
             let activityList = [];
             //all activities of every member in activityList
             (await activityCollection.find()).forEach(activity => {
@@ -129,7 +129,7 @@ module.exports = {
                 .setColor('#0099ff')
                 .setTitle(`Top voice activity`)
                 .setDescription(list);
-            message.channel.send(embed);
+            message.channel.send({embeds: [embed]});
             showBarChart(message, users, activities, `Voice activity of ${message.guild.name}`, 'Voice (hr/d)');
         }
         //it just gives the activity
@@ -216,6 +216,6 @@ let showActivity = (activity, message, user) => {
         embed.addField('In voice for:', `${text}`);
     }
 
-    message.channel.send(embed);
+    message.channel.send({embeds: [embed]});
 }
 

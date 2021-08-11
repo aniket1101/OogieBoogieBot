@@ -29,7 +29,7 @@ const updateStats = () => {
     let tempTotalVoice = 0;
     let num = 0;
 
-    client.guilds.cache.array().forEach(async (guild, index) => {
+    client.guilds.cache.each(async (guild, index) => {
         let activityCollection = activitySchema(guild.id);
 
         activityCollection.find().then(collection => {
@@ -38,7 +38,7 @@ const updateStats = () => {
                 tempTotalMessages += activity.messages;
                 tempTotalVoice += activity.voice;
             })
-            if (num === client.guilds.cache.array().length) {
+            if (num === client.guilds.cache.size) {
                 totalMessages = tempTotalMessages;
                 totalVoice = tempTotalVoice;
             }

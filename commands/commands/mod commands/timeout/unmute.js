@@ -27,7 +27,7 @@ module.exports = {
         if (!user) return message.reply("You didn't mention the user to unmute!");
         if (user.bot) return message.channel.send('You can\'t do this to a bot');
         // Now we get the member from the user
-        const member = message.guild.member(user);
+        const member = message.guild.members.cache.get(user.id);
         // If the member is in the guild
 
         if (!member) return message.reply("That user isn't in this server!");

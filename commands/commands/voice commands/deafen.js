@@ -11,13 +11,13 @@ module.exports = {
     clientPermissions: ['DEAFEN_MEMBERS'],
     execute: (message, args) => {
         if (args[0] === 'all') {
-            message.guild.channels.cache.array().forEach(channel => {
-                if (channel.type == 'voice') {
-                    channel.members.array().forEach(member => {
+            for (const channel of message.guild.channels.cache.values()) {
+                if (channel.type == 'GUILD_VOICE') {
+                    for (const member in channel.members.values()) {
                         member.voice.setDeaf(true);
-                    });
+                    }
                 };
-            });
+            };
             return message.channel.send(`I have deafened all possible members`);
         }
 
@@ -26,9 +26,9 @@ module.exports = {
         let user = targetMember.user;
 
         let flag = true;
-        message.guild.channels.cache.array().forEach(channel => {
-            if (channel.type == 'voice') {
-                channel.members.array().forEach(member => {
+        message.guild.channels.cache.map(element => element).forEach(channel => {
+            if (channel.type == 'GUILD_VOICE') {
+                channel.members.map(element => element).forEach(member => {
                     if (member.user == user) {
                         member.voice.setDeaf(true);
                         flag = false;

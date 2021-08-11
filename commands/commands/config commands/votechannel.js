@@ -30,7 +30,7 @@ module.exports = {
                     .setDescription(text)
                     .setColor('#0099ff')
 
-                message.channel.send(embed)
+                message.channel.send({embeds: [embed]})
             } else {
                 message.channel.send(`Set up vote channel using \`e votechannel #channel\``)
             }

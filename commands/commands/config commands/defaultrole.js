@@ -32,7 +32,7 @@ module.exports = {
                     .addFields(
                         { name: 'Current default role:', value: `${defaultRole}`, inline: false },
                     )
-                return message.channel.send(embed);
+                return message.channel.send({embeds: [embed]});
             } else {
                 return message.reply(`Set a default role using \`e defaultrole {role}\``)
             }

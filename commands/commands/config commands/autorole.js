@@ -32,7 +32,7 @@ module.exports = {
                     .addFields(
                         { name: 'Current Auto role:', value: `${autoRole}`, inline: false },
                     )
-                return message.channel.send(embed);
+                return message.channel.send({embeds: [embed]});
             } else {
                 return message.reply(`Set an auto role using \`e autorole {role}\``)
             }

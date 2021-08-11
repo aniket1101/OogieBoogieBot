@@ -30,7 +30,7 @@ module.exports = {
                 .setDescription(list.join('\n'))
                 .setColor('#0099ff')
 
-            message.channel.send(embed)
+            message.channel.send({embeds: [embed]})
             return;
         }
 
@@ -52,6 +52,6 @@ module.exports = {
             .setTitle(`${member.displayName}'s money`)
             .setDescription(`Bank account: **${obj ? obj.bank : 0} dollars** \n Cash: **${obj ? obj.money : 0} dollars**`)
 
-        message.channel.send(embed)
+        message.channel.send({embeds: [embed]})
     },
 };

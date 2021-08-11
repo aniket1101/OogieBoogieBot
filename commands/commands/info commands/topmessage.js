@@ -16,7 +16,7 @@ module.exports = {
                 .setTitle(`Oldest Message of ${channel.name}`)
                 .setDescription(`[Click this link to jump to message](https://discord.com/channels/${guild.id}/${channel.id}/${oldMessage.id})`)
 
-            message.channel.send(embed)
+            message.channel.send({embeds: [embed]})
         }).catch((err) => {
             message.channel.send(`Unable to fetch oldest message`)
         })
