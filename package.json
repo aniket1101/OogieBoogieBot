@@ -17,6 +17,9 @@
     "url": "https://github.com/eansengchang/OogieBoogieBot/issues"
   },
   "homepage": "https://github.com/eansengchang/OogieBoogieBot#readme",
+  "engines": {
+    "node": "16.6.x"
+  },
   "dependencies": {
     "chart.js": "^3.5.0",
     "discord.js": "^13.1.0-dev.1628597267.0062aa6",
