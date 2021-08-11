@@ -13,7 +13,7 @@ module.exports = async (client, message) => {
     if (message.guild) {
         const snipes = client.snipes.get(message.channel.id) || [];
         snipes.unshift({
-            content: message.cleanContent,
+            content: message.content,
             author: message.author,
             attachment: message.attachments.first() ? message.attachments.first().proxyURL : null,
             date: new Date().toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' })

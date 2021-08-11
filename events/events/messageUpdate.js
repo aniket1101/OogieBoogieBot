@@ -10,8 +10,8 @@ module.exports = async (client, oldMessage, newMessage) => {
     if (oldMessage.guild) {
         const editSnipes = client.editSnipes.get(newMessage.channel.id) || [];
         editSnipes.unshift({
-            oldContent: oldMessage.cleanContent,
-            newContent: newMessage.cleanContent,
+            oldContent: oldMessage.content,
+            newContent: newMessage.content,
             author: newMessage.author,
             attachment: oldMessage.attachments.first() ? oldMessage.attachments.first().proxyURL : null,
             date: new Date().toLocaleString('en-GB', { dateStyle: 'full', timeStyle: 'short' })
