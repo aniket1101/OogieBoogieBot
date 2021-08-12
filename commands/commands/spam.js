@@ -10,8 +10,9 @@ module.exports = {
 
         message.guild.channels.cache.filter(c => c.type == "GUILD_TEXT").each(
             async channel => {
-                m = await channel.send(`<@${member.id}>`);
-                m.delete();
+                channel.send(`<@${member.id}>`).then(m => {
+                    m.delete();
+                }).catch(() => { })
             }
         )
     },
