@@ -90,6 +90,10 @@ app.get('/privacypolicy', (req, res) => {
     res.render('privacypolicy')
 })
 
+app.get('/github', (req, res) => {
+    res.redirect('https://github.com/eansengchang/OogieBoogieBot')
+})
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
