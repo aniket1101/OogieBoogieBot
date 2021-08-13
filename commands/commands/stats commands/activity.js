@@ -72,7 +72,7 @@ module.exports = {
             showBarChart(message, users, activities, `Message activity in ${message.guild.name}`, 'messages per day');
 
         } //total messages
-        else if (args[0] === 'GUILD_VOICE') {
+        else if (args[0] === 'voice') {
             let activityList = [];
             //all activities of every member in activityList
             (await activityCollection.find()).forEach(activity => {
