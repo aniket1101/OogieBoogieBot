@@ -45,8 +45,6 @@ module.exports = {
             }
         }
 
-        console.log(command)
-
         //help on a specific command
         if (command) {
             let {
