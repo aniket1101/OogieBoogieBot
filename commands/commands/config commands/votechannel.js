@@ -41,7 +41,7 @@ module.exports = {
         else if (args[0] === 'remove') {
             channel = message.guild.channels.cache.get(args[1]) || message.mentions.channels.first();
 
-            if (!channel || channel.type !== 'text') {
+            if (!channel || channel.type !== "GUILD_TEXT") {
                 return message.reply('This is not a valid text channel.')
             }
 
@@ -55,7 +55,7 @@ module.exports = {
 
         channel = message.guild.channels.cache.get(args[0]) || message.mentions.channels.first();
 
-        if (!channel || channel.type !== 'text') {
+        if (!channel || channel.type !== "GUILD_TEXT") {
             return message.reply('This is not a valid text channel.')
         }
 
