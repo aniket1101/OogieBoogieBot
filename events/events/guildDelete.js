@@ -12,8 +12,7 @@ module.exports = async (client, guild) => {
         .setThumbnail(guild.iconURL())
         .addFields(
             { name: 'Servername:', value: `${guild.name}`, inline: true },
-            { name: 'Owner:', value: `<@!${guild.ownerID}>`, inline: true },
-            { name: 'Region:', value: `${guild.region}`, inline: true },
+            { name: 'Owner:', value: `<@!${guild.ownerId}>`, inline: true },
             { name: 'ID:', value: `${guild.id}`, inline: true },
             { name: 'Created at:', value: `\`${guild.createdAt.toDateString()}\`` },
             { name: 'Channels:', value: `${guild.channels.cache.size}`, inline: true },
