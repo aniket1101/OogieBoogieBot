@@ -164,7 +164,7 @@ module.exports = {
 
             if (!activity) {
                 activity = await activityCollection.findOne({
-                    _id: state1.member.id
+                    _id: message.member.id
                 });
             }
 
