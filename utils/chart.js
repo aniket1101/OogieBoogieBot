@@ -1,5 +1,5 @@
-const activitySchema = require('@models/server-activity-schema');
-const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
+// const activitySchema = require('@models/server-activity-schema');
+// const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
 const { MessageAttachment } = require('discord.js');
 
 const width = 1200;
