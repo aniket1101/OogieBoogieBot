@@ -21,7 +21,7 @@ const chartCallback = (ChartJS) => {
 
 module.exports = {
     showBarChart: async (message, users, activities, title, xAxis) => {
-        // return
+        return
         //creates a graph on activity
         const canvas = new ChartJSNodeCanvas({ width, height, chartCallback })
 
