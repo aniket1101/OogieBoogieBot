@@ -1,5 +1,5 @@
-// const activitySchema = require('@models/server-activity-schema');
-// const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
+const activitySchema = require('@models/server-activity-schema');
+const { ChartJSNodeCanvas } = require('chartjs-node-canvas')
 const { MessageAttachment } = require('discord.js');
 
 const width = 1200;
@@ -21,7 +21,7 @@ const chartCallback = (ChartJS) => {
 
 module.exports = {
     showBarChart: async (message, users, activities, title, xAxis) => {
-        return
+        // return
         //creates a graph on activity
         const canvas = new ChartJSNodeCanvas({ width, height, chartCallback })
 

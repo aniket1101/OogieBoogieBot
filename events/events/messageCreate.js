@@ -69,6 +69,10 @@ module.exports = async (client, message) => {
         // await message.delete({ reason: 'arran made bad meme' }).catch(() => {})
     }
 
+    if(message.guild.id == "512578878305337354" && message.content == "e tryhard"){
+        message.channel.send("tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: tryhard :warning: ")
+    }
+
     // rey delete
     // if (message.author.id === '512375511205543936' && message.guild.id === '512578878305337354') {
     //     await message.delete().catch(() => { });
