@@ -7,7 +7,7 @@ module.exports = {
     execute: async (message, args) => {
 
         let members = await message.guild.members.fetch();
-        let array = members.values();
+        let array = members.map(el => el);
         array = array.filter(member => !member.user.bot)
         array.sort((a, b) => a.joinedTimestamp < b.joinedTimestamp ? -1 : 1)
 

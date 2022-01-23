@@ -18,14 +18,11 @@ module.exports = {
         });
         let text = await response.text();
 
-        console.log(text)
         let result = text.split('"').filter((element, index) => {
             return element.startsWith('https') && text.split('"')[index - 1] === ` file_url=` && !element.endsWith('mp4');
         })
         // console.log(result)
 
-        console.log(result)
-        console.log(result.length)
         if (result.length === 0) {
             return message.reply('No searches found...')
         }
